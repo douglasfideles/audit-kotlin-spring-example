@@ -1,0 +1,28 @@
+spring:
+  jpa:
+    properties:
+      org:
+        hibernate:
+          envers:
+            audit_table_suffix: _AUD
+            store_data_at_delete: true
+      hibernate:
+#        envers:
+#          use_revision_entity_with_native_id: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        id:
+          new_generator_mappings: false
+#          db_structure_naming_strategy: legacy
+    hibernate:
+      ddl-auto: none
+      show-sql: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/local
+    username: local
+    password: local
+
+  flyway:
+    migrate-at-start: true
+    baseline-on-migrate: true
+    out-of-order: true
+
